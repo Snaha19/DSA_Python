@@ -33,6 +33,8 @@ class double_linklist:
         nd=Node(item)
 
         nd.next=self.start
+        if self.start:
+            self.start.prev=nd
         self.start=nd
 
     def insert_at_position(self,item,position):
@@ -77,31 +79,25 @@ class double_linklist:
         
         nd.next=temp.next
         nd.prev=temp
-
-        if temp.next!=None:
-            temp.next.prev=nd
-            return
-        
         temp.next=nd
+        if nd.next:
+            nd.next.prev=nd
 
 
         
-    def delete_last(self):
-        temp=self.start
-
+    def delete_last(self): 
+        temp=self.start 
         while temp.next!=None:
-           # p=temp
-            temp=temp.next
-        
+              p=temp 
+              temp=temp.next 
+            
         temp.prev.next=None
         del temp
 
-    def delete_first(self):
-
-     temp=self.start
-
-     self.start=temp.next
-     del temp
+    def delete_first(self): 
+        temp=self.start 
+        self.start=temp.next 
+        del temp
 
     def delete_specific_position(self,position):
       temp=self.start
@@ -139,63 +135,82 @@ class double_linklist:
         del temp
             
           
+
+dl=double_linklist()
+dl.insert_at_last(10)
+dl.insert_at_beggining(99)
+dl.insert_at_position(90,2)
+dl.insert_after_specific_item(999,99)
+dl.display()
+dl.delete_last()
+dl.delete_first()
+dl.delete_specific_item(80)
+dl.delete_specific_position(2)
+dl.display()
+
+
+
+
+
+
+ 
             
-dl = double_linklist()
+# dl = double_linklist()
 
-while True:
+# while True:
 
-    print("\n===== DOUBLY LINKED LIST =====")
-    print("1. Insert at Beginning")
-    print("2. Insert at Last")
-    print("3. Insert at Position")
-    print("4. Insert After Specific Item")
-    print("5. Delete First")
-    print("6. Delete Last")
-    print("7. Delete Specific Position")
-    print("8. Delete Specific Item")
-    print("9. Display")
-    print("0. Exit")
+#     print("\n===== DOUBLY LINKED LIST =====")
+#     print("1. Insert at Beginning")
+#     print("2. Insert at Last")
+#     print("3. Insert at Position")
+#     print("4. Insert After Specific Item")
+#     print("5. Delete First")
+#     print("6. Delete Last")
+#     print("7. Delete Specific Position")
+#     print("8. Delete Specific Item")
+#     print("9. Display")
+#     print("0. Exit")
 
-    ch = int(input("Enter your choice: "))
+#     ch = int(input("Enter your choice: "))
 
-    if ch == 1:
-        item = int(input("Enter item: "))
-        dl.insert_at_beggining(item)
+#     if ch == 1:
+#         item = int(input("Enter item: "))
+#         dl.insert_at_beggining(item)
 
-    elif ch == 2:
-        item = int(input("Enter item: "))
-        dl.insert_at_last(item)
+#     elif ch == 2:
+#         item = int(input("Enter item: "))
+#         dl.insert_at_last(item)
 
-    elif ch == 3:
-        item = int(input("Enter item: "))
-        pos = int(input("Enter position: "))
-        dl.insert_at_position(item, pos)
+#     elif ch == 3:
+#         item = int(input("Enter item: "))
+#         pos = int(input("Enter position: "))
+#         dl.insert_at_position(item, pos)
 
-    elif ch == 4:
-        item = int(input("Enter new item: "))
-        find_item = int(input("Insert after: "))
-        dl.insert_after_specific_item(item, find_item)
+#     elif ch == 4:
+#         item = int(input("Enter new item: "))
+#         find_item = int(input("Insert after: "))
+#         dl.insert_after_specific_item(item, find_item)
 
-    elif ch == 5:
-        dl.delete_first()
+#     elif ch == 5:
+#         dl.delete_first()
 
-    elif ch == 6:
-        dl.delete_last()
+#     elif ch == 6:
+#         dl.delete_last()
 
-    elif ch == 7:
-        pos = int(input("Enter position: "))
-        dl.delete_specific_position(pos)
+#     elif ch == 7:
+#         pos = int(input("Enter position: "))
+#         dl.delete_specific_position(pos)
 
-    elif ch == 8:
-        item = int(input("Enter item to delete: "))
-        dl.delete_specific_item(item)
+#     elif ch == 8:
+#         item = int(input("Enter item to delete: "))
+#         dl.delete_specific_item(item)
 
-    elif ch == 9:
-        dl.display()
+#     elif ch == 9:
+#         dl.display()
 
-    elif ch == 0:
-        print("Program Ended")
-        break
+#     elif ch == 0:
+#         print("Program Ended")
+#         break
 
-    else:
-        print("Invalid Choice")
+#     else:
+#         print("Invalid Choice")
