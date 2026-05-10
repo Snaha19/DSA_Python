@@ -100,6 +100,9 @@ class double_linklist:
         del temp
 
     def delete_specific_position(self,position):
+      if position==0:
+          self.delete_first()
+          return
       temp=self.start
       i=0
       p=temp
