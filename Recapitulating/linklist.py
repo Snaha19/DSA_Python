@@ -57,14 +57,14 @@ class single_linklist:
         prev=None
 
         while  temp.next!=None and specific_item!=temp.info:
-             prev=temp
+            #  prev=temp
              temp=temp.next
         
-        if prev==None:
-            self.insert_at_beginning(item)
-            return
-        nd.next=prev.next
-        prev.next=nd
+        # if prev==None:
+        #     self.insert_at_beginning(item)
+        #     return
+        nd.next=temp.next
+        temp.next=nd
 
     def insert_after_specific_item(self,item,specific_item):
         nd=node(item)
@@ -117,12 +117,12 @@ sl.insert_at_beginning(20)
 sl.insert_at_beginning(30)
 sl.insert_at_last(500) 
 sl.display()
-print("after calling insert_at specific position function")
-sl.insert_at_position(900,3)
-sl.display()
-# print("after inserting at specific item ")
-# sl.insert_after_specific_item(900,100)
+# print("after calling insert_at specific position function")
+# sl.insert_at_position(900,3)
 # sl.display()
+print("after inserting at specific item ")
+sl.insert_after_specific_item(900,30)
+sl.display()
 # print("ater deleting a sprcific position")
 # sl.delete_specific_position(3)
 # sl.display()
