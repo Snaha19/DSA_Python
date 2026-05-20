@@ -18,9 +18,10 @@ class stack_linklist:
             return
    
     
-        self.top.next=nd
+        # self.top.next=nd
+        # self.top=nd
+        nd.next=self.top
         self.top=nd
-
 
     def pop(self):
         if self.top==None:
@@ -28,8 +29,22 @@ class stack_linklist:
 
         item=self.top.info
         self.top=self.top.next
+        del item
+    
+    def display(self):
+        temp=self.top
+        while(temp!=None):
+            print(temp.info)
+            temp=temp.next
 
 
-
+s=stack_linklist()
+s.push(10)
+s.push(20)
+s.push(30)
+s.display()
+s.pop()
+print("delete")
+s.display()
 
         
